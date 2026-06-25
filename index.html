@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Register, edit, and manage student records with local storage support.">
+  <meta name="keywords" content="student registration system, javascript dom, local storage">
+  <title>Student Registration System</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="hero">
+    <p class="eyebrow">JavaScript DOM Assignment</p>
+    <h1>Student Registration System</h1>
+    <p class="hero-copy">Add, edit, delete, and preserve student records even after refreshing the page.</p>
+  </header>
+
+  <main class="main-container">
+    <section class="card form-card" aria-labelledby="form-heading">
+      <div class="section-heading">
+        <h2 id="form-heading">Student Form</h2>
+        <p>Fill in all fields to register or update a student record.</p>
+      </div>
+
+      <form id="studentForm" novalidate>
+        <div class="field">
+          <label for="name">Student Name</label>
+          <input type="text" id="name" name="name" placeholder="Enter full name" autocomplete="name">
+        </div>
+
+        <div class="field">
+          <label for="studentId">Student ID</label>
+          <input type="text" id="studentId" name="studentId" inputmode="numeric" placeholder="Enter student ID">
+        </div>
+
+        <div class="field">
+          <label for="email">Email ID</label>
+          <input type="email" id="email" name="email" placeholder="Enter email address" autocomplete="email">
+        </div>
+
+        <div class="field">
+          <label for="contact">Contact Number</label>
+          <input type="text" id="contact" name="contact" inputmode="numeric" placeholder="Enter 10-digit contact number" autocomplete="tel">
+        </div>
+
+        <p id="formMessage" class="form-message" aria-live="polite"></p>
+
+        <div class="form-actions">
+          <button type="submit" id="submitBtn">Add Student</button>
+          <button type="button" id="cancelBtn" class="secondary-btn" hidden>Cancel Edit</button>
+        </div>
+      </form>
+    </section>
+
+    <section class="card table-card" aria-labelledby="records-heading">
+      <div class="section-heading">
+        <h2 id="records-heading">Registered Students</h2>
+        <p id="recordCount">0 students saved</p>
+      </div>
+
+      <div class="table-scroll" id="scrollContainer">
+        <table>
+          <thead>
+            <tr>
+              <th scope="col">Name</th>
+              <th scope="col">ID</th>
+              <th scope="col">Email</th>
+              <th scope="col">Contact</th>
+              <th scope="col">Actions</th>
+            </tr>
+          </thead>
+          <tbody id="studentTableBody"></tbody>
+        </table>
+        <p id="emptyState" class="empty-state">No student records yet. Submit the form to create the first entry.</p>
+      </div>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
